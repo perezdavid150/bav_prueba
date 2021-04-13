@@ -14,7 +14,7 @@ class CrearVentas extends Migration
     public function up()
     {
         Schema::create('ventas', function (Blueprint $table) {
-            $table->increments('idVentas');
+            $table->increments('id');
             $table->string('factura');
             $table->string('cliente');
             $table->string('telefono');
