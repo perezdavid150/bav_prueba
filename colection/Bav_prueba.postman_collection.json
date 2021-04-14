@@ -1,0 +1,345 @@
+{
+	"info": {
+		"_postman_id": "5c88f912-b5f9-4876-a837-2f8e0ea7ab5c",
+		"name": "Bav_prueba",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtiene todos los productos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/v1/producto",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"producto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crea un producto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sku",
+							"value": "P123",
+							"type": "text"
+						},
+						{
+							"key": "nombre",
+							"value": "Producto 1",
+							"type": "text"
+						},
+						{
+							"key": "descripcion",
+							"value": "Producto descripcioin 1",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "1000",
+							"type": "text"
+						},
+						{
+							"key": "iva",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "/C:/Users/usuario/Desktop/producto.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/v1/producto",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"producto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtiene un producto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/v1/producto/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"producto",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualiza un producto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "sku",
+							"value": "P123",
+							"type": "text"
+						},
+						{
+							"key": "nombre",
+							"value": "Producto 1",
+							"type": "text"
+						},
+						{
+							"key": "descripcion",
+							"value": "Producto descripcion mas larga 1",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "2000",
+							"type": "text"
+						},
+						{
+							"key": "iva",
+							"value": "15",
+							"type": "text"
+						},
+						{
+							"key": "foto",
+							"value": "foto",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/v1/producto/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"producto",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina un producto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/v1/producto/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"producto",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtiene todas las ventas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/v1/venta",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"venta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crea una factura",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "factura",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "cliente",
+							"value": "Pedro",
+							"type": "text"
+						},
+						{
+							"key": "telefono",
+							"value": "1234567",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "pedro@correo.com.co",
+							"type": "text"
+						},
+						{
+							"key": "producto_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/v1/venta",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"venta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtiene una venta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/v1/venta/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"venta",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualiza una venta",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "factura",
+							"value": "12345",
+							"type": "text"
+						},
+						{
+							"key": "cliente",
+							"value": "Juan",
+							"type": "text"
+						},
+						{
+							"key": "telefono",
+							"value": "123456789",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "juan@correo.com.co",
+							"type": "text"
+						},
+						{
+							"key": "producto_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/v1/venta/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"venta",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina una venta",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/v1/venta/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"venta",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
