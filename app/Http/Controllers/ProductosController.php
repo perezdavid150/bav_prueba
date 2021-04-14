@@ -27,13 +27,23 @@ class ProductosController extends Controller
     public function create(Request $request)
      {
        $productos = new Producto;
+       
+       $path = '';
+
+      if ($request->hasFile('foto')) { 
+         $fileExtension = $request->file('foto')->getClientOriginalName(); 
+         $file = pathinfo($fileExtension, PATHINFO_FILENAME); 
+         $extension = $request->file('foto')->getClientOriginalExtension(); 
+         $fileStore = $file . '_' . time() . '.' . $extension;
+         $path = $request->file('foto')->move('fotos', $fileStore); 
+      }
 
        $productos->sku= $request->sku;
        $productos->nombre = $request->nombre;
        $productos->descripcion= $request->descripcion;
        $productos->precio= $request->precio;
        $productos->iva= $request->iva;
-       $productos->foto= $request->foto;
+       $productos->foto= $fileStore;
        
        $productos->save();
 
@@ -56,7 +66,7 @@ class ProductosController extends Controller
         $productos->descripcion = $request->input('descripcion');
         $productos->precio = $request->input('precio');
         $productos->iva = $request->input('iva');
-        $productos->foto = $request->input('foto');
+        $productos->foto = $request->uploadImage('foto');
         $productos->save();
         return response()->json($productos);
      }

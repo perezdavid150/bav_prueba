@@ -19,6 +19,8 @@ class CrearVentas extends Migration
             $table->string('cliente');
             $table->string('telefono');
             $table->string('email');
+            $table->integer('producto_id')->unsigned()->nullable();
+            $table->foreign('producto_id')->references('id')->on('productos');
             $table->timestamps();
         });
     }
