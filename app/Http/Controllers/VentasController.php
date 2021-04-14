@@ -16,6 +16,9 @@ class VentasController extends Controller
     public function __construct()
     { }
 
+    /**
+     * @return [type]
+     */
     public function index()
     {
      
@@ -25,6 +28,11 @@ class VentasController extends Controller
 
     }
 
+    /**
+     * @param Request $request
+     * 
+     * @return [type]
+     */
     public function create(Request $request)
      {
        $ventas = new Venta;
@@ -40,6 +48,11 @@ class VentasController extends Controller
        return response()->json($ventas);
      }
 
+     /**
+      * @param mixed $id
+      * 
+      * @return [type]
+      */
      public function show($id)
      {
         $ventas = Venta::find($id);
@@ -47,6 +60,12 @@ class VentasController extends Controller
         return response()->json($ventas);
      }
 
+     /**
+      * @param Request $request
+      * @param mixed $id
+      * 
+      * @return [type]
+      */
      public function update(Request $request, $id)
      { 
         $ventas= Venta::find($id);
@@ -60,6 +79,11 @@ class VentasController extends Controller
         return response()->json($ventas);
      }
 
+     /**
+      * @param mixed $id
+      * 
+      * @return [type]
+      */
      public function delete($id)
      {
         $ventas = Venta::find($id);

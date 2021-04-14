@@ -15,6 +15,9 @@ class ProductosController extends Controller
     public function __construct()
     { }
 
+    /**
+     * @return [type]
+     */
     public function index()
     {
      
@@ -24,6 +27,11 @@ class ProductosController extends Controller
 
     }
 
+    /**
+     * @param Request $request
+     * 
+     * @return [type]
+     */
     public function create(Request $request)
      {
        $productos = new Producto;
@@ -50,6 +58,11 @@ class ProductosController extends Controller
        return response()->json($productos);
      }
 
+     /**
+      * @param mixed $id
+      * 
+      * @return [type]
+      */
      public function show($id)
      {
         $productos = Producto::find($id);
@@ -57,20 +70,41 @@ class ProductosController extends Controller
         return response()->json($productos);
      }
 
+     /**
+      * @param Request $request
+      * @param mixed $id
+      * 
+      * @return [type]
+      */
      public function update(Request $request, $id)
      { 
         $productos= Producto::find($id);
+
+        $path = '';
+
+        if ($request->hasFile('foto')) { 
+            $fileExtension = $request->file('foto')->getClientOriginalName(); 
+            $file = pathinfo($fileExtension, PATHINFO_FILENAME); 
+            $extension = $request->file('foto')->getClientOriginalExtension(); 
+            $fileStore = $file . '_' . time() . '.' . $extension;
+            $path = $request->file('foto')->move('fotos', $fileStore); 
+        }
         
         $productos->sku = $request->input('sku');
         $productos->nombre = $request->input('nombre');
         $productos->descripcion = $request->input('descripcion');
         $productos->precio = $request->input('precio');
         $productos->iva = $request->input('iva');
-        $productos->foto = $request->uploadImage('foto');
+        $productos->foto = $fileStore;
         $productos->save();
         return response()->json($productos);
      }
 
+     /**
+      * @param mixed $id
+      * 
+      * @return [type]
+      */
      public function delete($id)
      {
         $productos = Producto::find($id);
