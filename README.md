@@ -1,4 +1,4 @@
-# Instalando core de Lumen
+# Realizado con core Lumen
 
 ## Despliegue en local
 
